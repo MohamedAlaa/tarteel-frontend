@@ -503,12 +503,12 @@ class Taraweeh extends React.Component<IProps, IState> {
     // Returns, surah/ayah number with word
     this.socket.on('ayahFound', this.handleAyahFound);
     // Update the state of read ayahs
-    this.socket.on('matchFound', this.handleMatchFound);
+    this.socket.on('updateMatch', this.handleMatchFound);
     this.socket.on('streamError', this.handleRecognitionError);
     this.socket.on('endStream', this.handleStopRecording);
 
     this.audioStreamer = new AudioStreamer(
-      data => this.socket.emit('sendStream', data),
+      data => this.socket.emit('binaryAudioData', data),
       this.handleRecognitionError
     );
   };
