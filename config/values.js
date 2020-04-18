@@ -49,7 +49,7 @@ const values = {
     recognitionServerURL: true,
     transcribeServerURL: true,
     tarteelAPIKey: true,
-    // sentryClient: true,
+    sentryClient: true,
   },
 
   locales,
@@ -79,6 +79,8 @@ const values = {
   recognitionServerURL: EnvVars.string('RECOGNITION_SERVER_URL'),
 
   transcribeServerURL: EnvVars.string('TRANSCRIBE_SERVER_URL'),
+
+  sentryClient: !EnvVars.bool('DEBUG'),
 
   objective: 100000,
 

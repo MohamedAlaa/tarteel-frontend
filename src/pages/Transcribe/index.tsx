@@ -201,7 +201,7 @@ class Transcribe extends React.Component<IProps, IState> {
     }
 
     const options = {
-      type: 'transcribe',
+      type: 'TRANSCRIPTION',
     };
 
     this.socket.emit('startStream', options);

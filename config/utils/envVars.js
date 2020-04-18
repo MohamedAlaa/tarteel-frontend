@@ -3,21 +3,24 @@ const isGitHubDeploy = process.env.NOW_GITHUB_DEPLOYMENT == 1;
 const env = {
   development: {
     TARTEEL_API_KEY: '9a3b6bfbafe8ee319c5275fb921be92317c14046',
-    RECOGNITION_SERVER_URL: 'https://voice-dev.tarteel.io',
-    TRANSCRIBE_SERVER_URL: 'https://voice-dev.tarteel.io',
+    RECOGNITION_SERVER_URL: 'http://localhost:5000',
+    TRANSCRIBE_SERVER_URL: 'http://localhost:5000',
     API_URL: 'https://api-dev.tarteel.io',
+    DEBUG: true
   },
   staging: {
     TARTEEL_API_KEY: process.env.STAGING_TARTEEL_API_KEY,
     RECOGNITION_SERVER_URL: 'https://voice-dev.tarteel.io',
     TRANSCRIBE_SERVER_URL: 'https://voice-dev.tarteel.io',
     API_URL: process.env.STAGING_API_URL,
+    DEBUG: false
   },
   production: {
     TARTEEL_API_KEY: process.env.TARTEEL_API_KEY,
     RECOGNITION_SERVER_URL: 'https://voice-dev.tarteel.io',
     TRANSCRIBE_SERVER_URL: 'https://voice-dev.tarteel.io',
     API_URL: process.env.API_URL,
+    DEBUG: false
   },
 };
 
