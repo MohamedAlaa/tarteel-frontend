@@ -55,7 +55,8 @@ const EN: IShape = {
     [KEYS.PARTNERS_LINK_TEXT]: 'Partners',
     [KEYS.PREVIOUS_WORD]: 'Prev',
     [KEYS.DONATE_LINK_TEXT]: 'Donate',
-    [KEYS.MOBILE_DOWNLOAD_MESSAGE]: 'Download the Tarteel mobile app to use all our features on the go on Android and iOS',
+    [KEYS.MOBILE_DOWNLOAD_MESSAGE]:
+      'Download the Tarteel mobile app to use all our features on the go on Android and iOS',
 
     // AYAH PICKER
     [KEYS.AYAH_PICKER_TITLE]: 'Pick an Ayah',
@@ -233,7 +234,8 @@ const EN: IShape = {
     [KEYS.CONTACT_US_SEND]: 'Send',
     [KEYS.CONTACT_US_BUTTON_TEXT]: 'contact us',
     [KEYS.CONTACT_US_SUBJECT]: 'Subject',
-    [KEYS.CONTACT_US_EMAIL_TEXT]: 'You can contact us by emailing <a href="mailto:info@tarteel.io">info@tarteel.io</a> or by using the form below.',
+    [KEYS.CONTACT_US_EMAIL_TEXT]:
+      'You can contact us by emailing <a href="mailto:info@tarteel.io">info@tarteel.io</a> or by using the form below.',
 
     // LOGIN FORM
     [KEYS.LOGOUT_BUTTON]: 'Logout',
@@ -397,7 +399,8 @@ const EN: IShape = {
     [KEYS.INTRO_MESSAGE]:
       "Tarteel uses AI to provide live feedback on your Qu'ran recitation. Try it out! Or",
     [KEYS.CLICK_DEMO_VIDEO_URL_MESSAGE]: 'watch the demo video',
-    [KEYS.BETA_MESSAGE]: 'Tarteel is in beta. Join the',
+    [KEYS.BETA_MESSAGE]:
+      'Download Tarteel on <a href="https://apps.apple.com/au/app/tarteel/id1391009396">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.mmmoussa.iqra">Android</a>',
     [KEYS.BETA_GROUP_URL_MESSAGE]: 'beta users group',
     [KEYS.KEEP_RECITING_MESSAGE]: 'Finding a match. Keep reciting...',
   },

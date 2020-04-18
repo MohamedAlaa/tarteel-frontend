@@ -44,7 +44,8 @@ export default {
     [KEYS.PARTNERS_LINK_TEXT]: 'الشركاء',
     [KEYS.PREVIOUS_WORD]: 'السابقه',
     [KEYS.DONATE_LINK_TEXT]: 'التبرع النقدي',
-    [KEYS.MOBILE_DOWNLOAD_MESSAGE]: 'حمل برنامج ترتيل الآن لكي تستخدم جميع الخاصيات على الأندرويد والأيفون',
+    [KEYS.MOBILE_DOWNLOAD_MESSAGE]:
+      'حمل برنامج ترتيل الآن لكي تستخدم جميع الخاصيات على الأندرويد والأيفون',
 
     // AYAH PICKER
     [KEYS.AYAH_PICKER_TITLE]: 'اختر آية',
@@ -222,7 +223,8 @@ export default {
     [KEYS.CONTACT_US_PAGE_TITLE]: 'تواصل معنا| ترتيل',
     [KEYS.CONTACT_US_SEND]: 'إرسال',
     [KEYS.CONTACT_US_BUTTON_TEXT]: 'تواصل معنا',
-    [KEYS.CONTACT_US_EMAIL_TEXT]: ' <a href="mailto:info@tarteel.io">info@tarteel.io</a> يمكنكم التواصل معنا عن طريق بريدنا',
+    [KEYS.CONTACT_US_EMAIL_TEXT]:
+      ' <a href="mailto:info@tarteel.io">info@tarteel.io</a> يمكنكم التواصل معنا عن طريق بريدنا',
 
     // DONATE PAGE
     [KEYS.DONATE_PAGE_TITLE]: 'التبرع النقدي | ترتيل',
@@ -268,8 +270,8 @@ export default {
       'ترتيل يستخدم الذكاء الاصطناعى لتقديم ملاحظات مباشرة على تلاوتك للقرآن. اضغط على زر الميكرفون أو',
     [KEYS.MEMORIZATION_MODE]: 'وضع الحفظ',
     [KEYS.CLICK_DEMO_VIDEO_URL_MESSAGE]: 'شاهد فيديو توضيحي',
-    [KEYS.BETA_MESSAGE]: 'ترتيل مازال تحت التطوير. إنضم إلى',
-    [KEYS.BETA_GROUP_URL_MESSAGE]: 'مجموعة المستخدمين',
+    [KEYS.BETA_MESSAGE]:
+      'حمل برنامج ترتيل على <a href="https://play.google.com/store/apps/details?id=com.mmmoussa.iqra">الأندرويد</a> و <a href="https://apps.apple.com/au/app/tarteel/id1391009396">الأيفون</a>',
     [KEYS.KEEP_RECITING_MESSAGE]: '...إستمر في التلاوة',
   },
 };
