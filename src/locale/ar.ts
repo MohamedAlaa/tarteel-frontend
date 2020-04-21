@@ -268,8 +268,8 @@ export default {
       'ترتيل يستخدم الذكاء الاصطناعى لتقديم ملاحظات مباشرة على تلاوتك للقرآن. اضغط على زر الميكرفون أو',
     [KEYS.MEMORIZATION_MODE]: 'وضع الحفظ',
     [KEYS.CLICK_DEMO_VIDEO_URL_MESSAGE]: 'شاهد فيديو توضيحي',
-    [KEYS.BETA_MESSAGE]: 'ترتيل مازال تحت التطوير. إنضم إلى',
-    [KEYS.BETA_GROUP_URL_MESSAGE]: 'مجموعة المستخدمين',
+    [KEYS.BETA_MESSAGE]: 'حمل برنامج ترتيل على <a' +
+    ' href="https://play.google.com/store/apps/details?id=com.mmmoussa.iqra">الأندرويد</a> و <a href="https://apps.apple.com/au/app/tarteel/id1391009396">الأيفون</a>',
     [KEYS.KEEP_RECITING_MESSAGE]: '...إستمر في التلاوة',
   },
 };

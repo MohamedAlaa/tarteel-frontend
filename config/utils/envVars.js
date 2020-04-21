@@ -6,18 +6,21 @@ const env = {
     RECOGNITION_SERVER_URL: 'http://localhost:5000',
     TRANSCRIBE_SERVER_URL: 'http://localhost:5000',
     API_URL: 'https://api-dev.tarteel.io',
+    DEBUG: true
   },
   staging: {
     TARTEEL_API_KEY: process.env.STAGING_TARTEEL_API_KEY,
     RECOGNITION_SERVER_URL: 'https://tarteel-voice-fe.now.sh/',
     TRANSCRIBE_SERVER_URL: 'https://tarteel-voice-fe.now.sh/',
     API_URL: process.env.STAGING_API_URL,
+    DEBUG: false
   },
   production: {
     TARTEEL_API_KEY: process.env.TARTEEL_API_KEY,
     RECOGNITION_SERVER_URL: 'https://tarteel-voice-fe.now.sh/',
     TRANSCRIBE_SERVER_URL: 'https://tarteel-voice-fe.now.sh/',
     API_URL: process.env.API_URL,
+    DEBUG: false
   },
 };
 

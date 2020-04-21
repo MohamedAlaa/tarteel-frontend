@@ -15,6 +15,7 @@ import { setLocation } from './store/actions/router';
 import { getCurrentUser } from './store/actions/auth';
 
 import './styles/index.scss';
+import config from '../config';
 import logScreen from './helpers/logScreen';
 
 const GlobalStyle = createGlobalStyle`
@@ -40,8 +41,9 @@ interface IState {
 
 type IProps = IOwnProps & IDispatchProps;
 
-Sentry.init({dsn: "https://27ec45db857d4436a63fda1d633f13db@sentry.io/1796030"});
-
+if (config('sentryClient')) {
+  Sentry.init({dsn: "https://27ec45db857d4436a63fda1d633f13db@sentry.io/1796030"});
+}
 class App extends React.Component<IProps, IState> {
   state = {
     isLoading: true,
@@ -66,7 +68,7 @@ class App extends React.Component<IProps, IState> {
 
   public render() {
     if (this.state.isLoading) {
-      // temporary fix to allow authentication before displaying the meta data for the progress page. 
+      // temporary fix to allow authentication before displaying the meta data for the progress page.
       // in the future this should apply to all AuthType.PRIVATE pages
       if(this.props.location.pathname === "/progress"){
         return null;

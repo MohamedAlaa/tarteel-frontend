@@ -602,13 +602,6 @@ class Transcribe extends React.Component<IProps, IState> {
         </ControlsWrapper>
         <div className="footer-text">
           <T id={KEYS.BETA_MESSAGE} />{' '}
-          <a
-            target="_window"
-            href="https://www.facebook.com/groups/232553337303098/"
-          >
-            <T id={KEYS.BETA_GROUP_URL_MESSAGE} />
-          </a>
-          .
         </div>
       </FooterWrapper>
     );

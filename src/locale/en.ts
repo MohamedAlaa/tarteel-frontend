@@ -397,8 +397,7 @@ const EN: IShape = {
     [KEYS.INTRO_MESSAGE]:
       "Tarteel uses AI to provide live feedback on your Qu'ran recitation. Try it out! Or",
     [KEYS.CLICK_DEMO_VIDEO_URL_MESSAGE]: 'watch the demo video',
-    [KEYS.BETA_MESSAGE]: 'Tarteel is in beta. Join the',
-    [KEYS.BETA_GROUP_URL_MESSAGE]: 'beta users group',
+    [KEYS.BETA_MESSAGE]: 'Download Tarteel on <a href="https://apps.apple.com/au/app/tarteel/id1391009396">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.mmmoussa.iqra">Android</a>',
     [KEYS.KEEP_RECITING_MESSAGE]: 'Finding a match. Keep reciting...',
   },
 };
