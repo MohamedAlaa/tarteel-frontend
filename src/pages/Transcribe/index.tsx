@@ -5,15 +5,11 @@ import { History } from 'history';
 import { Icon } from 'react-icons-kit';
 import { circleONotch } from 'react-icons-kit/fa/circleONotch';
 import { refresh } from 'react-icons-kit/fa/refresh';
-import { gear } from 'react-icons-kit/fa/gear';
-import differenceInMilliseconds from 'date-fns/differenceInMilliseconds';
-import queryString from 'query-string';
 import Tippy from '@tippy.js/react';
 import { enter } from 'react-icons-kit/iconic/enter';
 import { exit } from 'react-icons-kit/iconic/exit';
 import Modal from 'react-modal';
 import _ from 'lodash';
-import Helmet from 'react-helmet';
 import { withCookies } from 'react-cookie';
 import { micA } from 'react-icons-kit/ionicons/micA';
 import { stop } from 'react-icons-kit/fa/stop';
@@ -32,7 +28,7 @@ import {
   ControlsWrapper,
   ToggleButtonWrapper,
   TranslationModeWrapper,
-  videoModalStyles,
+  videoModalStyles
 } from './styles';
 import { VideoWrapper } from '../AboutPage/styles';
 import humps from 'humps';
@@ -50,7 +46,6 @@ import Fullscreen from 'react-full-screen';
 import io from 'socket.io-client';
 import Socket = SocketIOClient.Socket;
 import IAyahShape from '../../shapes/IAyahShape';
-import { fetchSurah, fetchSpecificAyah } from '../../api/ayahs';
 import surahs from '../../api/surahs';
 import ReadingMode from './ReadingMode';
 import { isIOSEmbeddedBrowser } from '../../helpers/browserUtils';
@@ -77,7 +72,6 @@ interface IState {
   isTranslationMode: boolean;
   isVideoModalOpen: boolean;
   partialQuery: string;
-  query: string; // TODO: Is this used?
   isLoading: boolean;
   showErrorMessage: boolean;
   errorMessage: string | JSX.Element;
@@ -88,7 +82,7 @@ interface IState {
   ayahFound: boolean;
   isAyahCompleted: boolean;
   isSurahCompleted: boolean;
-  currentSurah?: ICurrentSurah;
+  currentSurah: ICurrentSurah;
   dimensions: {
     width: number;
   };
@@ -113,15 +107,10 @@ interface ISpeechResult {
 
 type IProps = IOwnProps & IDispatchProps & IStateProps;
 
-interface IAyahFound {
+interface IMatchFound {
   ayahNum: number;
   surahNum: number;
-  ayahWords: string[];
-}
-
-interface IMatchFound {
-  match: IAyahShape;
-  wordCount: number;
+  wordIndex: number;
 }
 
 interface ISpeechResult {
@@ -129,7 +118,7 @@ interface ISpeechResult {
   isFinal: boolean;
 }
 
-const DEBUG = true;
+const DEBUG = !config('deployIsProd');
 
 class Transcribe extends React.Component<IProps, IState> {
   audioStreamer: any;
@@ -146,7 +135,6 @@ class Transcribe extends React.Component<IProps, IState> {
       isFetchingNextWord: false,
       isTranslationMode,
       partialQuery: '',
-      query: '',
       isLoading: false,
       showErrorMessage: false,
       errorMessage: React.createElement('div'),
@@ -158,21 +146,21 @@ class Transcribe extends React.Component<IProps, IState> {
       ayahFound: false,
       isSurahCompleted: false,
       dimensions: {
-        width: -1,
-      },
+        width: -1
+      }
     };
   }
 
   handleError = (message?: string | JSX.Element) => {
     this.setState({
       showErrorMessage: true,
-      errorMessage: message || '',
+      errorMessage: message || ''
     });
   };
 
   toggleFullscreen = () => {
     this.setState({
-      fullScreen: !this.state.fullScreen,
+      fullScreen: !this.state.fullScreen
     });
   };
 
@@ -189,11 +177,10 @@ class Transcribe extends React.Component<IProps, IState> {
     await this.resetState();
 
     this.setState({
-      query: '',
       isRecording: true,
       isLoading: true,
       showErrorMessage: false,
-      errorMessage: React.createElement('div'),
+      errorMessage: React.createElement('div')
     });
 
     if (this.socket.disconnected) {
@@ -201,7 +188,7 @@ class Transcribe extends React.Component<IProps, IState> {
     }
 
     const options = {
-      type: 'TRANSCRIPTION',
+      type: 'TRANSCRIPTION'
     };
 
     this.socket.emit('startStream', options);
@@ -218,13 +205,13 @@ class Transcribe extends React.Component<IProps, IState> {
     this.socket.close();
     await this.audioStreamer.stop();
     this.setState({
-      isRecording: false,
+      isRecording: false
     });
 
-    //display results for patial query.
+    // display results for partial query.
     if (
       this.state.partialQuery &&
-      this.state.partialQuery != '' &&
+      this.state.partialQuery !== '' &&
       !this.state.ayahFound
     ) {
       this.props.history.push('/recognition/' + this.state.partialQuery);
@@ -235,18 +222,14 @@ class Transcribe extends React.Component<IProps, IState> {
     if (this.props.isAuthenticated) {
       await sumbitRecitedAyah({
         surah,
-        ayah,
+        ayah
       });
     }
   };
 
   handleRecordingButton = async () => {
     if (DEBUG) {
-      console.log(
-        `TRANSCRIBE: Recording button clicked. isLoading: ${
-        this.state.isLoading
-        }`
-      );
+      console.log(`TRANSCRIBE: Recording button clicked. isLoading: ${this.state.isLoading}`);
     }
     if (this.state.isLoading) {
       return;
@@ -302,31 +285,34 @@ class Transcribe extends React.Component<IProps, IState> {
     return `/public/og/recognition_${locale}.png`;
   };
 
-  handleMatchFound = async ({ match, wordCount }: IMatchFound) => {
+  handleMatchFound = async (match: IMatchFound) => {
     if (DEBUG) {
       console.log(
-        `TRANSCRIBE EVENT: Match Found. surahNum: ${
-        match.chapter_id
-        }, ayahNum: ${match.verse_number}, wordCount: ${wordCount}`
+        `TRANSCRIBE EVENT: Match Found. surahNum: \
+        ${match.surahNum}, ayahNum: ${match.ayahNum}, wordCount: ${match.wordIndex}`
       );
     }
 
     this.setState(
-      { isAyahCompleted: false, currentTranscribedIndex: wordCount - 1 },
+      { isAyahCompleted: false, currentTranscribedIndex: match.wordIndex - 1 },
       () => {
         const { previousAyahs } = this.state;
-        const matchWordsCount = match.text_simple.split(' ').length;
-        if (wordCount === matchWordsCount) {
+        const matchWordsCount = this.state.partialQuery.split(' ').length;
+        if (match.wordIndex === matchWordsCount) {
+          const newAyah: IAyahShape = {
+            verseNumber: match.ayahNum,
+            chapterId: match.surahNum
+          };
           this.setState(
             {
               currentTranscribedIndex: -1,
-              previousAyahs: [...previousAyahs, humps.camelizeKeys(match)],
+              previousAyahs: [...previousAyahs, newAyah],
               isAyahCompleted: true,
             },
             async () => {
               await this.handleSumbitRectitedAyah(
-                match.chapter_id,
-                match.verse_number
+                match.surahNum,
+                match.ayahNum
               );
             }
           );
@@ -349,7 +335,7 @@ class Transcribe extends React.Component<IProps, IState> {
             `https://quran.com/api/api/v3/chapters/${
             ayah.chapter_id
             }/verses?offset=${offset}&limit=${50}`
-          ),
+          )
         ],
         []
       );
@@ -373,7 +359,7 @@ class Transcribe extends React.Component<IProps, IState> {
         .flatten()
         .groupBy('page_number')
         .map(ayahs => ({
-          ayahs: _.mapKeys(ayahs, value => value.verse_number),
+          ayahs: _.mapKeys(ayahs, value => value.verse_number)
         }))
         .value();
 
@@ -445,7 +431,7 @@ class Transcribe extends React.Component<IProps, IState> {
         if (currentAyah.chapterId !== nextAyah.chapterId) {
           await this.handleStopRecording();
           this.setState({
-            isSurahCompleted: true,
+            isSurahCompleted: true
           });
         }
         if (
@@ -455,16 +441,16 @@ class Transcribe extends React.Component<IProps, IState> {
           this.setState({
             currentAyah: {
               ...nextAyah,
-              surahName: getSurahName(nextAyah.chapterId),
-            },
+              surahName: getSurahName(nextAyah.chapterId)
+            }
           });
         }
       } else {
         this.setState({
           currentAyah: {
             ...nextAyah,
-            surahName: getSurahName(nextAyah.chapterId),
-          },
+            surahName: getSurahName(nextAyah.chapterId)
+          }
         });
       }
     }
@@ -483,9 +469,7 @@ class Transcribe extends React.Component<IProps, IState> {
         }`
       );
     }
-    const { ayahFound, partialQuery } = this.state;
-    const { text } = result;
-    this.setState({ partialQuery: text });
+    this.setState({ partialQuery: result.text });
   };
 
   resetState = async () => {
@@ -498,7 +482,7 @@ class Transcribe extends React.Component<IProps, IState> {
       isLoading: false,
       ayahFound: false,
       currentAyah: null,
-      currentSurah: null,
+      currentSurah: null
     });
     await this.props.clearNextAyah();
     await this.handleStopRecording();
@@ -570,7 +554,7 @@ class Transcribe extends React.Component<IProps, IState> {
 
   renderFooter = () => {
     const classnames = classNames({
-      recording: this.state.isRecording,
+      recording: this.state.isRecording
     });
 
     return (
@@ -617,8 +601,7 @@ class Transcribe extends React.Component<IProps, IState> {
       currentTranscribedIndex,
       isRecording,
       previousAyahs,
-      currentSurah,
-      dimensions,
+      currentSurah
     } = this.state;
     const { isMemorizationMode } = this.props;
     return (
@@ -628,8 +611,8 @@ class Transcribe extends React.Component<IProps, IState> {
           this.setState({
             dimensions: {
               ...this.state.dimensions,
-              width: contentRect.bounds.width,
-            },
+              width: contentRect.bounds.width
+            }
           });
         }}
       >
@@ -672,7 +655,7 @@ class Transcribe extends React.Component<IProps, IState> {
                       currentAyah,
                       currentSurah,
                       currentTranscribedIndex,
-                      previousAyahs,
+                      previousAyahs
                     }}
                   />
                 )}
@@ -692,10 +675,10 @@ class Transcribe extends React.Component<IProps, IState> {
   };
 
   renderIntroMessage = () => {
-    const { ayahFound, isRecording, partialQuery } = this.state;
+    const { ayahFound, partialQuery } = this.state;
     const locale = this.props.cookies.get('currentLocale') || 'en';
 
-    if (partialQuery == '') {
+    if (partialQuery === '') {
       return (
         <React.Fragment>
           <Modal
@@ -773,13 +756,13 @@ const mapStateToProps = (state: ReduxState): IStateProps => {
   };
 };
 
-const mapDispatchToProps = (dispatch): IDispatchProps => {
+const mapDispatchToProps = (dispatch: any): IDispatchProps => {
   return {
     setRecognitionResults: (result: any) => {
       return dispatch(setRecognitionResults(result));
     },
     loadNextAyah: (ayah: IAyahShape) => dispatch(loadNextAyah(ayah)),
-    clearNextAyah: () => dispatch(clearNextAyah()),
+    clearNextAyah: () => dispatch(clearNextAyah())
   };
 };
 

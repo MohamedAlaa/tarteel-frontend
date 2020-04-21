@@ -63,10 +63,10 @@ const values = {
   // The port on which the server should run.
   port: EnvVars.number('PORT', 3000),
 
-  apiURL: EnvVars.string('API_URL'),
-  tarteelAPIKey: EnvVars.string('TARTEEL_API_KEY'),
-  deployIsProd: false,
-  deployIsLocal: false,
+  apiURL: EnvVars.string('API_URL', ''),
+  tarteelAPIKey: EnvVars.string('TARTEEL_API_KEY', ''),
+  deployIsProd: !EnvVars.bool('DEBUG'),
+  deployIsLocal: EnvVars.bool('DEBUG'),
 
   cdnURL: CDN_URL,
 
@@ -75,10 +75,9 @@ const values = {
 
   IOSAppLink: 'https://itunes.apple.com/us/app/iqra/id1391009396',
 
-  // recognitionServerURL: 'https://follow-along.now.sh',
-  recognitionServerURL: EnvVars.string('RECOGNITION_SERVER_URL'),
+  recognitionServerURL: EnvVars.string('RECOGNITION_SERVER_URL', ''),
 
-  transcribeServerURL: EnvVars.string('TRANSCRIBE_SERVER_URL'),
+  transcribeServerURL: EnvVars.string('TRANSCRIBE_SERVER_URL', ''),
 
   sentryClient: !EnvVars.bool('DEBUG'),
 
