@@ -188,7 +188,7 @@
     "progressbar.js": "^1.0.1",
     "promise": "7.1.1",
     "proxy-middleware": "0.14.0",
-    "qs": "6.2.1",
+    "qs": "6.2.3",
     "query-string": "6.8.3",
     "quran-components": "^0.1.8",
     "raven": "2.6.2",
