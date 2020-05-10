@@ -10,6 +10,7 @@ import localeMessages from '../src/locale';
 
 const locales = {
   en: 'English',
+  es: 'Español',
   ar: 'العربية',
 };
 

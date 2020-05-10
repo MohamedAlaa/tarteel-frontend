@@ -1,0 +1,407 @@
+import KEYS from './keys';
+
+interface IShape {
+  messages: { [key: string]: string };
+}
+
+const EESN: IShape = {
+  messages: {
+    // LANGUAGE
+    local: 'español',
+
+    // LOCALS
+    [KEYS.LOCAL_SITELOCALE]: 'Idioma del sitio',
+    [KEYS.LOCAL_CHANGELOCALE]:
+      'Elija el idioma en el que desea que se muestre el sitio',
+    [KEYS.LOCAL_NATIVENAME]: 'Español',
+    [KEYS.LOCAL_SELECTLABEL]: 'Idioma',
+    [KEYS.SETTING_TITLE]: 'Ajustes',
+    [KEYS.LOCAL_TITLE]: 'Tarteel -  AI para perfeccionar Recitación del Corán',
+    [KEYS.LOCAL_DESCRIPTION]:
+      'Identifique el ayah que está recitando, busque por voz en el Corán y encuentre la traducción. Pruebe la demostración en nuestro sitio web o descargue nuestra app móvil para usarla en su camino.',
+    [KEYS.LOCAL_NAME]: 'Tarteel',
+    [KEYS.CURRENT_APPLICATION_VERSION]: 'Tarteel versión 1.0',
+
+    // COMMON & GENERAL
+    [KEYS.HOME_WORD]: 'Inicio',
+    [KEYS.CLICK_WORD]: 'Click',
+    [KEYS.CONTRIBUTE_WORD]: 'Contribuir',
+    [KEYS.YES_WORD]: 'Si',
+    [KEYS.NO_WORD]: 'No',
+    [KEYS.SKIP_WORD]: 'Omitir',
+    [KEYS.SUBMIT_WORD]: 'Enviar',
+    [KEYS.SAVE_WORD]: 'Guardar',
+    [KEYS.SAVED_WORD]: 'Guardado',
+    [KEYS.THANK_YOU_MESSAGE]: '¡Gracias!',
+    [KEYS.USERS_LIST_TITLE]: 'Lista de Usuarios',
+    [KEYS.AYAH_WORD]: 'Ayah',
+    [KEYS.AYAHS_WORD]: 'Ayaat',
+    [KEYS.NEXT_AYAH]: 'Siguente Ayah',
+    [KEYS.PREVIOUS_AYAH]: 'Ayah Anterior',
+    [KEYS.RETRY_BUTTON_TEXT]: 'volver',
+    [KEYS.SUBMIT_BUTTON_TEXT]: 'Siguente',
+    [KEYS.CONTINUOUS_MODE_NOTE_TEXT]: 'modo de continuacíon',
+    [KEYS.CHANGE_AYAH_TEXT]: 'Haga clic aquí para cambiar el Ayah',
+    [KEYS.SURAH_WORD]: 'Surah',
+    [KEYS.CONTINUE_READING_BUTTON_TEXT]: 'Sigue leyendo',
+    [KEYS.RANDOM_AYAH_LINK_TEXT]: 'Ayah Aleatoria',
+    [KEYS.ABOUT_LINK_TEXT]: 'Acerca de Nosotros',
+    [KEYS.YOUR_RECITATIONS]: 'Sus recitaciones',
+    [KEYS.PROFILE_LINK_TEXT]: 'Mi perfil',
+    [KEYS.MOBILE_APP_LINK_TEXT]: 'App Movil',
+    [KEYS.EVALUATE_AYAHS]: 'Evaluar Ayaat',
+    [KEYS.EVALUATE_AYAHS_PAGE_TITLE]: 'Evaluar Ayaat | Tarteel',
+    [KEYS.GET_STARTED]: 'Empezamos',
+    [KEYS.PARTNERS_LINK_TEXT]: 'Socios',
+    [KEYS.PREVIOUS_WORD]: 'Anterior',
+    [KEYS.DONATE_LINK_TEXT]: 'Donar',
+    [KEYS.MOBILE_DOWNLOAD_MESSAGE]: 'Descargue la aplicación móvil Tarteel para usar todas nuestras funciones sobre la marcha en Android e iOS',
+
+    // AYAH PICKER
+    [KEYS.AYAH_PICKER_TITLE]: 'Escoger un Ayah',
+    [KEYS.AYAH_PICKER_SEARCH_PLACEHOLDER]: 'Buscar (en Árabe)',
+    [KEYS.AYAH_PICKER_BACK_BUTTON_TEXT]: 'hasta Surah',
+
+    // SURAH PICKER
+    [KEYS.SURAH_PICKER_TITLE]: 'Pick a Surah',
+    [KEYS.SURAH_PICKER_SEARCH_PLACEHOLDER]: 'Search (in English/Arabic)',
+    [KEYS.SURAH_PICKER_BACK_BUTTON_TEXT]: 'Back Home',
+
+    // DEMOGRAPHICS PAGE
+    [KEYS.DEMOGRAPHICS_PAGE_TITLE]: 'Demographic Data | Tarteel',
+    [KEYS.DEMOGRAPHICS_PAGE_EDIT_DATA_TEXT]: 'Edit Your Data',
+    [KEYS.DEMOGRAPHICS_THANKS_TEXT]:
+      'Thank you! <span className="one-more">One more thing... </span>',
+    [KEYS.DEMOGRAPHICS_FORM_SUBMIT_BUTTON_TEXT]: "that's me",
+    [KEYS.DEMOGRAPHIC_INFO_LINK_TEXT]: 'Demographic info',
+    [KEYS.DEMOGRAPHIC_PAGE_FIRST_PARAGRAPH_1]:
+      'With your help, we have reached a total of',
+    [KEYS.DEMOGRAPHIC_PAGE_FIRST_PARAGRAPH_2]:
+      "recordings. That's great, but at Tarteel, we're also committed to making sure that our recordings reflect recitations by both women and men and from the different ethnicities and ages that make up the Muslim ummah.",
+    [KEYS.DEMOGRAPHIC_PAGE_FIRST_PARAGRAPH_3]:
+      'Sharing your demographic info helps us tailor the machine learning models to provide a considerably greater accuracy for Tarteel.',
+    [KEYS.DEMOGRAPHIC_PAGE_SECOND_PARAGRAPH]:
+      "Help us assess how well we're doing by telling us a little bit about yourself...",
+
+    // GENDER INPUT
+    [KEYS.GENDER_INPUT_LABEL]: 'Gender',
+    [KEYS.GENDER_INPUT_OPTION_MALE]: 'male',
+    [KEYS.GENDER_INPUT_OPTION_FEMALE]: 'female',
+    [KEYS.AGE_INPUT_LABEL]: 'Age',
+
+    // QIRAAH INPUT
+    [KEYS.QIRAAH_INPUT_LABEL]: "Qira'ah",
+    [KEYS.QIRAAH_INPUT_OPTION_HAFS]: 'Hafs',
+    [KEYS.QIRAAH_INPUT_OPTION_WARSH]: 'Warsh',
+    [KEYS.QIRAAH_INPUT_OPTION_NOTSURE]: 'not sure',
+    [KEYS.QIRAAH_INPUT_OPTION_OTHER]: 'Other',
+    [KEYS.HERITAGE_INPUT_LABEL]: 'Heritage',
+
+    // SUBSCRIBE PAGE
+    [KEYS.SUBSCRIBE_PAGE_TEMPLATE_TITLE]: 'Subscribe',
+    [KEYS.SUBSCRIBE_PAGE_EMAIL_PLACEHOLDER_TEXT]: 'email address',
+    [KEYS.SUBSCRIBE_PAGE_EMAIL_BUTTON_TEXT]: 'Subscribe for Updates on Tarteel',
+    [KEYS.SUBSCRIBE_BUTTON_TEXT]: 'Subscribe',
+    [KEYS.SUBSCRIBE_PAGE_FIRST_PARAGRAPH_1]:
+      'Alhamdulillah, with your help, we have reached a total of',
+    [KEYS.SUBSCRIBE_PAGE_FIRST_PARAGRAPH_2]: 'recordings.',
+    [KEYS.SUBSCRIBE_PAGE_CONGRATS_MESSAGE_1]:
+      'Congratulations! You have unlocked',
+    [KEYS.SUBSCRIBE_PAGE_CONGRATS_MESSAGE_2]:
+      '-- select any surah and ayah, and recite continuously and your recordings will be uploaded. Check it out by clicking below!',
+    [KEYS.SUBSCRIBE_PAGE_HELP_US_MESSAGE_1]:
+      'You can also help us reach our goal by sharing the Tarteel 100,000 challenge',
+    [KEYS.SUBSCRIBE_PAGE_HELP_US_MESSAGE_2]: 'with your friends and family!',
+    [KEYS.SUBSCRIBE_PAGE_RECEIVE_MESSAGE]:
+      'Receive email updates about Tarteel. You can unsubscribe at any time',
+
+    // DATASET
+    [KEYS.TARTEEL_DATASET_PAGE_TITLE]: 'Download the 25k dataset | Tarteel',
+    [KEYS.TARTEEL_DATASET_LINK_TEXT]: 'Tarteel datasets',
+    [KEYS.DATASET_DOWNLOAD_TEXT]: 'Download the Tarteel Dataset',
+    [KEYS.DATASET_DOWNLOAD_PARAGRAPH]:
+      'The full dataset is available in CSV format. Audio files can be downloaded from the accompanying URLs in the CSV.',
+    [KEYS.DATASET_DOWNLOAD_DETAILS]:
+      '(.csv, 5.6 MB) -- approximately 25,000 recordings without evaluations.',
+    [KEYS.DATASET_DOWNLOAD_SAMPLE_RECORDINGS_TEXT]:
+      'Download Sample Recordings',
+    [KEYS.DATASET_DOWNLOAD_SAMPLE_RECORDINGS_PARAGRAPH]:
+      'Here are some sample audio files that have been submitted by Tarteel users:',
+
+    // COOKIES MESSAGES
+    [KEYS.COOKIES_BUTTON_TEXT]: 'Got it!',
+    [KEYS.PRIVACY_POLICY_LINK_TEXT]: 'Privacy Policy',
+    [KEYS.COOKIE_POLICY_LINK_TEXT]: 'Cookie Policy',
+    [KEYS.COOKIES_NOTICE_MESSAGE_1]:
+      'We use cookies to ensure you have the best browsing experience on our website.',
+    [KEYS.COOKIES_NOTICE_MESSAGE_2]:
+      'By using our site, you acknowledge that you have read and understood our',
+
+    // NOT FOUND PAGE
+    [KEYS.NOT_FOUND_PAGE_TEMPLATE_TITLE]: 'Not Found',
+    [KEYS.NOT_FOUND_PAGE_GO_HOME_LINK]: 'Go Home',
+    [KEYS.NOT_FOUND_PAGE_TEXT]: 'Page Not Found',
+
+    // AYAH COMPONENT
+    [KEYS.AYAH_NOT_FOUND_PAGE_TEXT]: 'Not A Correct Ayah Index',
+    [KEYS.PICK_DIFFERENT_AYAH]: 'Pick Different Ayah',
+    [KEYS.AYAH_SHOW_TRANSLITERATION]: 'Show Transliteration',
+    [KEYS.AYAH_HIDE_TRANSLITERATION]: 'Hide Transliteration',
+    [KEYS.AYAH_COMPONENT_LOADING_MESSAGE]:
+      'Loading ayah... (if an ayah does not show up, try clicking "next ayah")',
+    [KEYS.AYAHS_RECITED]: 'Ayahs contributed',
+
+    // ABOUT PAGE
+    [KEYS.ABOUT_PAGE_TEMPLATE_TITLE]: 'About | Tarteel',
+    [KEYS.ABOUT_PAGE_RECITED_AYAHS_MESSAGE]:
+      'Our users have helped us reach a total of <b>{recitedAyahs}</b> ayahs <a href="/contribute">contributed</a> so far alhamdulillah!',
+    [KEYS.ABOUT_PAGE_FIRST_PARAGRAPH_TITLE]:
+      'AI for Perfecting Quran Recitation',
+    [KEYS.ABOUT_PAGE_FIRST_PARAGRAPH_TEXT_1]:
+      'Tarteel is a Quran application that listens to your recitation and corrects mistakes. The name tarteel comes from the Quran itself, where God commands us to "recite the Quran with Tarteel (slow, measured, rhythmic tones)" (73:4).',
+    [KEYS.ABOUT_PAGE_FIRST_PARAGRAPH_TEXT_2]:
+      'Tarteel leverages the latest technology in AI and Machine Learning (ML) to perform speech recognition and analyze recitations. To power our ML algorithms, we require a large and diverse dataset of reciters from all around the world to contribute their recitations. The more submissions the algorithm gets, the more accurate it becomes.',
+    [KEYS.ABOUT_PAGE_FIRST_PARAGRAPH_TEXT_3]:
+      'Our goal is to support and serve our Imams and Institutions that seek to teach Muslims how to read the words of Allah - SWT - and to provide those with limited access to Imams and Sheikhs a means of maintaining their relationship with Allah - SWT - and his book.',
+    [KEYS.ABOUT_PAGE_SECOND_PARAGRAPH_TITLE]:
+      'Why are we collecting recitations?',
+    [KEYS.ABOUT_PAGE_SECOND_PARAGRAPH_TEXT_1]:
+      'We started Tarteel as an initiative to collect the world’s first and largest open-source dataset of Quranic recitations carried out by ordinary Muslims. Most of the available audio of the Quran being recited is from professional reciters with strong fluency in tajweed (rules of recitation) and is recorded in studios. This is valuable when someone wants to listen to a professional recitation of the Quran.',
+    [KEYS.ABOUT_PAGE_SECOND_PARAGRAPH_TEXT_2]:
+      "However, many software tools that Muslim developers are interested in building require training machine learning models on Quranic recitation (e.g. to convert recitation2text), as it is recited by ordinary Muslims. The recitation of ordinary Muslims differs from professional recordings in many ways: for example, it may include background noise, or may be recited by people with limited knowledge of tajweed, or the demographics of reciters may be different. By collecting this data, we can train machine learning models, which we will release to software developers who are interested in developing <a href='https://docs.google.com/presentation/d/1hlcbAcEfBg2y_KWwzyPPYjh5SMxowDEWM1XkDC48ZGQ/edit?usp=sharing'>a wide variety of applications</a> that are based on recitation2text, things like:",
+    [KEYS.ABOUT_PAGE_SECOND_PARAGRAPH_TEXT_2_LINK]:
+      'a wide variety of applications',
+    [KEYS.ABOUT_PAGE_THIRD_PARAGRAPH_TITLE]: 'Our progress to date',
+    [KEYS.ABOUT_PAGE_FOURTH_PARAGRAPH_TITLE]:
+      'Are the verses that are being recited varied?',
+    [KEYS.ABOUT_PAGE_FOURTH_PARAGRAPH_TEXT]:
+      "To build good machine learning models, it helps to have people recite different verses from across the entire Quran. We're measuring how well we've covered the Qur'an and these are our stats so far:",
+    [KEYS.ABOUT_PAGE_FIFTH_PARAGRAPH_TITLE]: 'The Tarteel Team',
+    [KEYS.ABOUT_PAGE_SIXTH_PARAGRAPH_TITLE]:
+      'Are the verses that are being recited varied?',
+    [KEYS.ABOUT_PAGE_SIXTH_PARAGRAPH_TEXT]:
+      "To build good machine learning models, it helps to have people recite different verses from across the entire Quran. We're measuring how well we've covered the Qur'an and these are our stats so far:",
+    [KEYS.ABOUT_PAGE_SEVENTH_PARAGRAPH_TITLE]:
+      "What is Tarteel's privacy policy?",
+    [KEYS.ABOUT_PAGE_SEVENTH_PARAGRAPH_TEXT]:
+      "The users who provide Tarteel with audio recordings of their recitations also provide a valuable trust to our team. In protect their privacy, while at the same time, creating a public dataset to be released to developers, we take the steps laid out in our <a href='/privacy'>privacy policy</a>.",
+    [KEYS.ABOUT_PAGE_LAST_PARAGRAPH_TITLE]:
+      'Where can I learn more about Tarteel?',
+    [KEYS.ABOUT_PAGE_LAST_PARAGRAPH_TEXT]:
+      "For more information, please check out our <a href='https://drive.google.com/open?id=17RpnWAbmmkl3iPM9awSNsf4S_2Mk_pKd' target='_blank'>white paper</a>.",
+    [KEYS.FIELDS_OF_USE_FIRST_ITEM]:
+      'Hifz helping tools that automatically correct mistakes',
+    [KEYS.FIELDS_OF_USE_SECOND_ITEM]:
+      'Tajweed teaching tools in a similar vein',
+    [KEYS.FIELDS_OF_USE_THIRD_ITEM]:
+      'Masjid kiosks that follow the imam and display the translation of the verse',
+
+    // MOBILE PAGE
+    [KEYS.MOBILE_PAGE_TITLE]: 'Mobile App | Tarteel',
+    [KEYS.MOBILE_KEYWORD]: 'Download our mobile app',
+    [KEYS.MOBILE_PAGE_PARAGRAPH]:
+      'Use Tarteel on the go to make your breaks and commutes more productive and full of reward with our Android and iOS apps.',
+
+    // GENERAL INPUTS
+    [KEYS.NAME_INPUT_PLACEHOLDER]: 'e.g. Mohamed',
+    [KEYS.EMAIL_ADDRESS_INPUT_PLACEHOLDER]: 'e.g. Mohamed@example.com',
+    [KEYS.MESSAGE_TEXTAREA_PLACEHOLDER]: 'Your message here...',
+    [KEYS.NAME_INPUT_LABEL]: 'Name',
+    [KEYS.USERNAME_INPUT_LABEL]: 'Username',
+    [KEYS.PHONE_NUMBER_INPUT_LABEL]: 'Phone Number',
+    [KEYS.EMAIL_ADDRESS_INPUT_LABEL]: 'Email Address',
+    [KEYS.MESSAGE_TEXTAREA_LABEL]: 'Message',
+
+    // LANDING
+    [KEYS.LANDING_GREETING_MESSAGE]: 'Salaam!',
+    [KEYS.LANDING_FIRST_PARAGRAPH]:
+      " Welcome to the <b>Tarteel 100,000 Challenge</b>! Thank you for helping us build the world's first public, open-source dataset</a> of Quran recitations by ordinary Muslim men and women. <a href='/about'>Learn more</a>",
+    [KEYS.LANDING_SECOND_PARAGRAPH_TITLE]: 'How it works',
+    [KEYS.LANDING_LIST_FIRST_ITEM]:
+      'To start off, Tarteel will provide you with <b>5 verses</b> to recite.',
+    [KEYS.LANDING_LIST_SECOND_ITEM]:
+      "Click the mic to record yourself reciting the verse. <b>Don't worry</b> about making your recitation perfect, as we're looking for people with a variety of recitation levels.",
+    [KEYS.LANDING_LIST_THIRD_ITEM]:
+      "These recitations <a href='/privacy'>will be released</a> as an open-source initiative to encourage machine learning applications based on recitations of the Quran.",
+    [KEYS.LANDING_LAST_LINE]:
+      'Click <strong>START</strong> below to get started!',
+    [KEYS.LANDING_BUTTON_TEXT]: 'Start',
+
+    // CONTACT US
+    [KEYS.CONTACT_US_PAGE_TITLE]: 'Contact us | Tarteel',
+    [KEYS.CONTACT_US]: 'Contact Us',
+    [KEYS.CONTACT_US_SEND]: 'Send',
+    [KEYS.CONTACT_US_BUTTON_TEXT]: 'contact us',
+    [KEYS.CONTACT_US_SUBJECT]: 'Subject',
+    [KEYS.CONTACT_US_EMAIL_TEXT]: 'You can contact us by emailing <a href="mailto:info@tarteel.io">info@tarteel.io</a> or by using the form below.',
+
+    // LOGIN FORM
+    [KEYS.LOGOUT_BUTTON]: 'Logout',
+    [KEYS.LOGIN_BUTTON]: 'Login',
+    [KEYS.LOGIN_DONT_HAVE_ACCOUNT]: "Don't have an account? Register",
+    [KEYS.LOGIN_FORGET_PASSWORD]: 'Forgot password ?',
+    [KEYS.LOGIN_EMAIL_USERNAME_LABEL]: 'Email/Username',
+    [KEYS.LOGIN_USERNAME_LABEL]: 'Username',
+    [KEYS.LOGIN_PASSWORD_LABEL]: 'Password',
+    [KEYS.LOGIN_PASSWORD_PLACEHOLDER]: 'Type your Password',
+
+    // SIGNUP FORM
+    [KEYS.SIGNUP_REGISTER_BUTTON]: 'Register',
+    [KEYS.SIGNUP_REGISTER_MESSAGE]: 'Already have an account? Login',
+
+    // NEW PASSWORD FORM
+    [KEYS.NEW_PASSSWORD_VERIFY_LOGIN_MESSAGE]:
+      'Your New Password has been set, you can start using it to log in now.',
+    [KEYS.NEW_PASSSWORD_VERIFY_LOGIN_BUTTON]: 'Login Now?',
+
+    // VERIFY PASSWORD FORM
+    [KEYS.VERIFY_PASSWORD_TITLE]: 'Reset Your Password',
+    [KEYS.VERIFY_PASSWORD_MESSAGE]:
+      "We've sent you a verification code to your email:",
+    [KEYS.VERIFY_PASSWORD_BUTTON]: 'Change Password',
+    [KEYS.VERIFY_PASSWORD_VERIFICATION_CODE_LABEL]: 'Verification Code',
+    [KEYS.VERIFY_PASSWORD_NEW_PASSWORD_LABEL]: 'New Password',
+
+    // RECORDING ERROR
+    [KEYS.RECORDING_ERROR_MESSAGE_MOBILE_GENERIC]:
+      "It doesn't look like you have microphone permissions enabled. Make sure to enable mic permissions or download the mobile app: ",
+    [KEYS.RECORDING_ERROR_MESSAGE_IOS]:
+      "It doesn't look like you have microphone permissions enabled. Switch to Safari and enable mic permissions or download the mobile app: ",
+    [KEYS.RECORDING_ERROR_MESSAGE_DESKTOP]:
+      'To upload recordings, please enable microphone access, or use a different browser.',
+
+    // FOOTER
+    [KEYS.FOOTER_EVALUATOR_LINK]: 'Want to help us evaluating some ayahs?',
+    [KEYS.FOOTER_MESSAGE_1]: 'Thanks for helping us in reciting ayahs.',
+    [KEYS.FOOTER_MESSAGE_2]:
+      'You can also help us evaluating some ayahs other people has recited.',
+    [KEYS.FOOTER_MESSAGE_3]:
+      'With the help of users like you, we have evaluated',
+
+    // RESET PASSWORD
+    [KEYS.RESET_YOUR_PASSWORD_TITLE]: 'Reset Your Password',
+    [KEYS.RESET_YOUR_PASSWORD_BUTTON]: 'Reset',
+
+    // AYAH RECOGNITION PAGE
+    [KEYS.AYAH_RECOGNITION]: 'Ayah Recognition',
+    [KEYS.AYAH_RECOGNITION_POWERED_BY]:
+      "Powered by <a href={url} target='_blank'>Iqra</a>",
+    [KEYS.AYAH_RECOGNITION_RECOGNITION_MESSAGE]:
+      'Voice search the Quran by reciting a verse or part of a verse.',
+    [KEYS.AYAH_RECOGNITION_IMPROVE_ACCURACY]:
+      'Want to see recitation correction?',
+    [KEYS.AYAH_RECOGNITION_CONTRIBUTE]: 'Contribute your recording',
+    [KEYS.AYAH_RECOGNITION_MIC_PERMISSION_ERROR]:
+      "Permission to use microphone is blocked. To fix, please \n <a target='_blank' href={chromeLink}> change your settings here</a>.",
+    [KEYS.AYAH_RECOGNITION_AUDIO_CAPTURE_ERROR]:
+      "No microphone was found. Ensure that a microphone is installed and that your \n <a target='_blank' href={errorLink}> microphone settings </a> \n are configured correctly.",
+    [KEYS.AYAH_RECOGNITION_NO_SPEECH_ERROR]:
+      "No speech was detected. You may need to adjust your <a target='_blank' href={errorLink}> microphone settings</a>.",
+    [KEYS.AYAH_RECOGNITION_RESULTS]: 'Results',
+    [KEYS.AYAH_RECOGNITION_NEW_SEARCH]: 'New Search',
+    [KEYS.TRANSCRIBE_SEARCH_NOTE]:
+      "We haven't been able to match your recitation. Recite for a longer period in your next recording to get features such as follow-along, memorization mode, and others. You can find the details on this",
+    [KEYS.VIDEO]: 'video',
+    [KEYS.SEARCHING]: 'searching...',
+
+    // PROFILE PAGE
+    [KEYS.PROFILE_TITLE]: 'My Profile | Tarteel',
+    [KEYS.PROFILE_THANKS_USER_FOR_CONTRIBUTING_MESSAGE]:
+      'Thank you for your work in contributing to Tarteel.',
+    [KEYS.PROFILE_TOTAL_OF_VERSES_HAS_BEEN_RECITED]:
+      'You have recited a total of <strong>{userRecitedAyahs}</strong> verses.',
+    [KEYS.PROFILE_SEE_STATISTICS_MESSAGE]:
+      'This information is based only on sessions recorded using this particular device and browser, and may not show up if you clear your cache or use a different browser. If you\'d like to see these statistics on a different device or <a href = `https://facebook.com/sharer/sharer.php?u=https://www.tarteel.io/profile/${sessionId}` target="_blank" aria-label=""> share</a> these statistics, please use the following permalink:',
+    [KEYS.PROFILE_WEEKLY_ACTIVITY]: 'Your Weekly Activity',
+    [KEYS.PROFILE_VERSES_RECITED_LAST_WEEK]: 'Verses Recited Last Week',
+    [KEYS.PROFILE_VERSES_RECITED_PARAGRAPH_MESSAGE]:
+      'These are the verses you recited over the past week. Click on a verse to listen to its recording.',
+    [KEYS.PROFILE_OLDER_RECITATIONS]: 'Older Recitations',
+    [KEYS.PROFILE_OLDER_RECITATIONS_PARAGRAPH_MESSAGE]:
+      'These are the verses more than a week ago. Click on a verse to listen to its recording.',
+    [KEYS.PROFILE_NOTE_MESSAGE]: 'Not visible on your public profile',
+    [KEYS.PROFILE_SHARE_MESSAGE]: 'Share your profile',
+
+    // EVALUATOR PAGE
+    [KEYS.EVALUATOR_TITLE_TEXT]: 'Listen and Evaluate',
+    [KEYS.EVALUATOR_PARAGRAPH_1]:
+      'Is the correct verse being recited in this recording?',
+    [KEYS.EVALUATOR_PARAGRAPH_2]:
+      "(Don't worry about minor mistakes, <em>tajweed</em>, background noise, or even an omitted word.)",
+    [KEYS.EVALUATOR_PARAGRAPH_2_LINK_TEXT]: 'See more help',
+    [KEYS.EVALUATOR_CLICK_TO_HEAR_TEXT]: 'to hear the sentence.',
+    [KEYS.EVALUATOR_THANKS_FOR_HELPING_MESSAGE_1]:
+      'Thanks for helping us evaluating the recited ayahs.',
+    [KEYS.EVALUATOR_THANKS_FOR_HELPING_MESSAGE_2]:
+      'With the help of users like you, we have evaluated',
+    [KEYS.EVALUATOR_THANKS_FOR_HELPING_MESSAGE_3]:
+      'Want to help us evaluating more ayahs?',
+
+    // PRIVACY POLICY PAGE
+    [KEYS.PRIVACY_POLICY_PAGE_TITLE]: "Tarteel's Privacy Policy",
+    [KEYS.PRIVACY_POLICY_PAGE_PARAGRAPH]:
+      'Last Updated: October 6, 2019<br/><br/> Tarteel is committed to maintaining robust privacy protections for its users. Our Privacy Policy is designed to help you understand how we collect, use and safeguard the information you provide to us and to assist you in making informed decisions when using our site or services (collectively, the “Site”). By accessing our Site, you accept our Privacy Policy, and you consent to our collection, storage, use and disclosure of your Personal Information and Data as described in this Privacy Policy.<br/><br/> <h2>I. Information We Collect</h2><br/> We collect “Non- Personal Information” and “Personal Information.” Non- Personal Information includes information that cannot be used to personally identify you, such as anonymous usage data, general demographic information we may collect, referring/exit pages and URLs, platform types, preferences you submit and preferences that are generated based on the data you submit and number of clicks. Personal Information includes the voice recordings which you submit to us through the use of the Site, demographic information that you provide, IP addresses, as well as your email when you elect to join the mailing list or create an account.<br/><br/> <h3>1. Information collected via Technology</h3><br/> In an effort to improve the quality of the Service, we track information provided to us by your browser or by our software application when you view or use the Service, such as the website you came from (known as the “referring URL”), the type of browser you use, the device from which you connected to the Site, the time and date of access, and other information that does not personally identify you. We track this information using cookies, or small text files which include an anonymous unique identifier. Cookies are sent to a user’s browser from our servers and are stored on the user’s computer hard drive. Sending a cookie to a user’s browser enables us to collect Non - Personal information about that user and keep a record of the user’s preferences when utilizing our services, both on an individual and aggregate basis. For more details, see our Cookie Policy.<br/><br/> <h3>2. Information you provide to us</h3><br/> In addition to the information provided automatically by your browser when you visit the Site, users of this site voluntary submit information through this site. We collect this information, including the voice recordings which you submit to us through the use of the Site, demographic information that you provide, as well as your email when you elect to join the mailing list or create an account.<br/><br/> <h3>3. Children’s Privacy</h3><br/> The Site and the Service are not directed to anyone under the age of 13. The Site does not knowingly collect or solicit information from anyone under the age of 13. In the event that we learn that we have gathered personal information from anyone under the age of 13 without the consent of a parent or guardian, we will delete that information as soon as possible. If you believe we have collected such information, please contact us at <a href="mailto:info@tarteel.io">info@tarteel.io</a> with  subject line: “[Privacy Policy] Underage use without consent”. <br/><br/> <h2>II. How We Use and Share Information</h2><br/> <h3>Personal Information:</h3> <br/> Except as otherwise stated in this Privacy Policy, we do not sell, trade, rent or otherwise share for marketing purposes your Personal Information with third parties without your consent. We do share Personal Information with vendors who are performing services for the Company, such as the servers for our email communications who are provided access to user’s email address for purposes of sending emails from us. Those vendors use your Personal Information only at our direction and in accordance with our Privacy Policy. However, note that the dataset that we are making is partially open-source: this means that the audio files of the recitations may be released publicly along with the demographic information that you have provided. This is to provide software developers the ability to develop tools based on the data. Please consider this thoroughly before using the Site.<br/><br/> In general, the Personal Information you provide to us is used to help us communicate with you. For example, we use Personal Information to contact users in response to questions, solicit feedback from users, provide technical support, and inform users about promotional offers.<br/><br/> We may share Personal Information with outside parties if we have a good - faith belief that access, use, preservation or disclosure of the information is reasonably necessary to meet any applicable legal process or enforceable governmental request; to enforce applicable Terms of Service, including investigation of potential violations; address fraud, security or technical concerns; or to protect against harm to the rights, property, or safety of our users or the public as required or permitted by law.<br/><br/> <h3>Non-Personal Information</h3><br/> In general, we use Non - Personal Information to help us improve the Service and customize the user experience. We also aggregate Non - Personal Information in order to track trends and analyze use patterns on the Site. This Privacy Policy does not limit in any way our use or disclosure of Non - Personal Information and we reserve the right to use and disclose such Non - Personal Information to our partners, advertisers and other third parties at our discretion.<br/><br/> In the event we undergo a business transaction such as a merger, acquisition by another company, or sale of all or a portion of our assets, your Personal Information may be among the assets transferred. You acknowledge and consent that such transfers may occur and are permitted by this Privacy Policy, and that any acquirer of our assets may continue to process your Personal Information as set forth in this Privacy Policy. If our information practices change at any time in the future, we will post the policy changes to the Site so that you may opt out of the new information practices. We suggest that you check the Site periodically if you are concerned about how your information is used. <br/><br/> <h2>III. How We Protect Your Information</h2><br/> We implement security measures designed to protect your information from unauthorized access. Your account is protected by your account password and we urge you to take steps to keep your personal information safe by not disclosing your password and by logging out of your account after each use. We further protect your information from potential security breaches by implementing certain technological security measures including encryption, firewalls and secure socket layer technology. However, these measures do not guarantee that your information will not be accessed, disclosed, altered or destroyed by breach of such firewalls and secure server software. By using our Service, you acknowledge that you understand and agree to assume these risks.<br/><br/> <h2>IV. Your Rights Regarding the Use of Your Personal Information</h2><br/> You have the right at any time to prevent us from contacting you for marketing purposes. When we send a promotional communication to a user, the user can opt out of further promotional communications by following the unsubscribe instructions provided in each promotional e – mail. You can also indicate that you do not wish to receive marketing communications from us in by opting out from <a   href=”https://tarteel.us19.list-manage.com/unsubscribe?u=9b0faa8fa13ee6568ec91de2a&id=5a464ba313”>this link</a> [https://tarteel.us19.list-manage.com/unsubscribe?u=9b0faa8fa13ee6568ec91de2a&id=5a464ba313]. Please note that notwithstanding the promotional preferences you indicate by either unsubscribing or opting out of the Site, we may continue to send you administrative emails including, for example, periodic updates to our Privacy Policy. <br/><br/> <h2>V. Links to Other Websites</h2><br/> As part of the Service, we may provide links to or compatibility with other websites or applications. However, we are not responsible for the privacy practices employed by those websites or the information or content they contain. This Privacy Policy applies solely to information collected by us through the Site and the Service. Therefore, this Privacy Policy does not apply to your use of a third party website accessed by selecting a link on our Site or via our Service. To the extent that you access or use the Service through or on another website or application, then the privacy policy of that other website or application will apply to your access or use of that site or application. We encourage our users to read the privacy statements of other websites before proceeding to use them.<br/><br/> <h2>VI. Changes to Our Privacy Policy</h2><br/> Please review the “Last Updated” legend at the top of the Cookie Policy to determine when it was last amended. Any changes will become effective on the “Last Updated” date indicated above. By using the Site or providing information to us following such changes, you will have accepted the amended Cookie Policy. Tarteel reserves the right to change this policy and our Terms of Service at any time. We will notify you of significant changes to our Privacy Policy by sending a notice to the primary email address specified in your account or by placing a prominent notice on our site or by other means as required by law. Significant changes will go into effect 30 days following such notification. Non - material changes or clarifications will take effect immediately. You should periodically check the Site and this privacy page for updates.<br/>',
+    [KEYS.PRIVACY_POLICY_COOKIE_POLICY_TITLE]: "Tarteel's Cookie Policy",
+    [KEYS.PRIVACY_POLICY_COOKIE_POLICY_PARAGRAPH]:
+      'Last Updated: October 6, 2019<br/><br/> By using or accessing Tarteel’s sites or services (collectively, the “Site”), you agree to Tarteel’s use of Cookies as outlined below.<br/><br/> <h2>I. Introduction: What is a cookie?</h2><br/> This Cookie policy helps to explain the occasions when and why cookies may be sent to visitors to the Site (referred to in this policy as “we”, “us” or “our”). “Cookies” are text-only pieces of information that a website transfers to an individual’s hard drive or other website-browsing equipment for record-keeping purposes. Cookies allow the Site to remember important information that will make your use of the site more convenient. A cookie will typically contain the name of the domain from which the cookie has come, the “lifetime” of the cookie, and a randomly generated unique number or other value. Certain cookies will be used on the Site regardless of whether you are logged in to your account or not. Session Cookies are temporary cookies that remain in the cookie file of your browser until you leave the Site.<br/> Persistent Cookies remain in the cookie file of your browser for much longer (though how long will depend on the lifetime of the specific cookie). When we use session cookies to track the total number of visitors to our Site, this is done on an anonymous aggregate basis (as cookies do not in themselves carry any personal data). We may also employ cookies so that we remember your computer when it is used to return to the Site to help customize your Tarteel web experience. We may associate personal information with a cookie file in those instances.<br/><br/> <h2>II. How Tarteel uses cookies</h2><br/> We use cookies from third-party partners such as Google for analytics services and for marketing purposes. This takes place from the Site and when you download or install a Tarteel App. Tarteel uses cookies to analyze user activity in order to improve the Site. For example, we can use cookies to look at aggregate patterns like the average number of contributions that users provide. We can use such analysis to gain insights about how to improve the functionality and user experience of the Site.<br/><br/> <h2>III. Managing Cookies in your Browser</h2><br/> Use the options in your web browser if you do not wish to receive a cookie or if you wish to set your browser to notify you when you receive a cookie. You can easily delete and manage any cookies that have been installed in the cookie folder of your browser by following the instructions provided by your particular browser manufacturer.<br/><br/> <ul>   <li><a href="https://support.google.com/chrome/answer/95647?hl=en-US">Google Chome</a></li>   <li><a href="https://support.microsoft.com/en-us/kb/260971">Internet Explorer</a></li>   <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer">Mozilla     Firefox</a></li>   <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac">Safari     (Desktop)</a></li>   <li><a href="https://support.apple.com/en-us/HT201265">Safari (Mobile)</a></li>   <li><a href="http://support.google.com/ics/nexus/bin/answer.py?hl=en&answer=2425067">Android Browser</a></li>   <li><a href="http://www.opera.com/help">Opera</a></li>   <li><a href="https://www.opera.com/help/tutorials/security/privacy/">Opera Mobile</a></li> </ul> <br/> If your browser is not listed here, consult the documentation that your particular browser manufacturer provides. You may also consult your mobile device documentation for information on how to disable cookies on your mobile device. If you disable all cookies, you may not be able to take advantage of all the features of this Site. Please note that if you have not cleared your cookies or cache, the contents of which may affect autofill functions on the Tarteel site and you are responsible for any such actions.<br/><br/> Tarteel uses Google Analytics for user tracking and website metrics. Tarteel and Google use first-party cookies (such as the Google Analytics cookie). You may opt-out of Google Analytics by visiting the Google Ads Preferences Manager. To provide website visitors more choice on how their data is collected by Google Analytics, Google has developed an Opt-out Browser add-on, which is available by visiting <a href="https://tools.google.com/dlpage/gaoptout">Google   Analytics Opt-out Browser Add-on</a> [https://tools.google.com/dlpage/gaoptout], to enable you to opt-out of Google’s programs.<br/><br/> <h2>IV. Changes to Our Cookie Policy</h2><br/> Please review the “Last Updated” legend at the top of the Cookie Policy to determine when it was last amended. Any changes will become effective on the “Last Updated” date indicated above. By using the Site or providing information to us following such changes, you will have accepted the amended Cookie Policy. If Tarteel is going to use Personal Data collected through the Site in a manner materially different from that stated at the time of collection, then Tarteel will notify users via email and/or by posting a notice on Tarteel’s Site for 30 days prior to such use or by other means as required by law.<br/>',
+    // CONTRIBUTE PAGE
+    [KEYS.CONTRIBUTE_PAGE_TITLE]: 'Contribute your recording | Tarteel',
+
+    // PARTNERS PAGE
+    [KEYS.PARTNERS_PAGE_TITLE]: 'Partners | Tarteel',
+    [KEYS.PARTNERS_PARAGRAPH]:
+      "We have proudly partnered with these orgs to further mission of Tarteel. If you're interested in partenering with us, <a href='/contact'>get in touch</a>!",
+
+    // DONATE PAGE
+    [KEYS.DONATE_PAGE_TITLE]: 'Donate | Tarteel',
+
+    // CONTRIBUTORS
+
+    [KEYS.CONTRIBUTOR_NAME_1]: 'Abdellatif Abdelfattah',
+    [KEYS.CONTRIBUTOR_POSITION_1]: 'Engineer at Twitter',
+    [KEYS.CONTRIBUTOR_NAME_2]: 'Abdulrahman Alfozan',
+    [KEYS.CONTRIBUTOR_POSITION_2]: 'Engineer at Facebook',
+    [KEYS.CONTRIBUTOR_NAME_6]: 'Anas Abou Allaban',
+    [KEYS.CONTRIBUTOR_POSITION_6]: 'Engineer at Amazon',
+    [KEYS.CONTRIBUTOR_NAME_7]: 'Dina Atia',
+    [KEYS.CONTRIBUTOR_POSITION_7]: 'Intern at Tarteel',
+    [KEYS.CONTRIBUTOR_NAME_8]: 'Hamzah Khan',
+    [KEYS.CONTRIBUTOR_POSITION_8]: 'Engineer at Uber ATG',
+    [KEYS.CONTRIBUTOR_NAME_9]: 'Fahim Dalvi',
+    [KEYS.CONTRIBUTOR_POSITION_9]: 'Researcher at QCRI',
+    [KEYS.CONTRIBUTOR_NAME_10]: 'Marwa Abdulhai',
+    [KEYS.CONTRIBUTOR_POSITION_10]: 'CS student at MIT',
+    [KEYS.CONTRIBUTOR_NAME_11]: 'Ahmed Elabd',
+    [KEYS.CONTRIBUTOR_POSITION_11]: 'Marketing at Mundipharma',
+    [KEYS.CONTRIBUTOR_NAME_12]: 'Mohamed Moussa',
+    [KEYS.CONTRIBUTOR_POSITION_12]: 'Engineer at Facebook',
+    [KEYS.CONTRIBUTOR_NAME_13]: 'Ahmed Hussein',
+    [KEYS.CONTRIBUTOR_POSITION_13]: 'Engineer at Tarteel',
+    [KEYS.CONTRIBUTOR_NAME_14]: 'Amr Elfass',
+    [KEYS.CONTRIBUTOR_POSITION_14]: 'Board Member at ISB',
+    [KEYS.CONTRIBUTOR_NAME_15]: 'Basyouny Nehela',
+    [KEYS.CONTRIBUTOR_POSITION_15]: 'President of Boston Islamic Seminary BIS',
+    [KEYS.CONTRIBUTOR_NAME_ZESHAN]: 'Zeshan Gondal',
+    [KEYS.CONTRIBUTOR_POSITION_ZESHAN]: 'Strategy at Yale',
+    [KEYS.CONTRIBUTOR_NAME_ABDULLAH]: 'Abdullah Budeir',
+    [KEYS.CONTRIBUTOR_POSITION_ABDULLAH]: 'Associate at Bain & Co.',
+    [KEYS.CONTRIBUTOR_NAME_AQEEL]: 'Aqeel Mohammad',
+    [KEYS.CONTRIBUTOR_POSITION_AQEEL]: 'Principal at EMPIRE',
+
+    // TRANSCRIBE
+    [KEYS.TRANSCRIBE]: 'Transcribe',
+    [KEYS.FOLLOW_ALONG_MODE]: 'Enable follow along mode (Beta)',
+    [KEYS.WAITING_FOR_INPUT]: 'Try saying قل هو الله احد',
+    [KEYS.READING_MODE]: 'Reading mode',
+    [KEYS.MEMORIZATION_MODE]: 'Hide ayahs',
+    [KEYS.INTRO_MESSAGE]:
+      "Tarteel uses AI to provide live feedback on your Qu'ran recitation. Try it out! Or",
+    [KEYS.CLICK_DEMO_VIDEO_URL_MESSAGE]: 'watch the demo video',
+    [KEYS.BETA_MESSAGE]: 'Download Tarteel on <a href="https://apps.apple.com/au/app/tarteel/id1391009396">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.mmmoussa.iqra">Android</a>',
+    [KEYS.KEEP_RECITING_MESSAGE]: 'Finding a match. Keep reciting...',
+  },
+};
+
+export default ES;
+
+// Mohamed Hassan
